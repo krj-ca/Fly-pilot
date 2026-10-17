@@ -3,43 +3,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071426">
-  <title>Air-fly | Flight Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#06111e">
+  <title>Air-fly | 3D Flight Simulator</title>
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
   <div id="app">
     <header class="topbar">
-      <div class="brand">✈ AIR-FLY</div>
-      <div class="status">● SIMULATOR READY</div>
+      <div class="brand">✈ AIR-FLY <small>3D SIMULATOR</small></div>
+      <div class="status" id="connection-status">● READY</div>
     </header>
 
     <main id="screen" class="screen">
       <section class="hero">
-        <div class="eyebrow">FLIGHT OPERATIONS CENTER</div>
-        <h1>YOUR SKY.<br><span>YOUR AIRPORT.</span></h1>
-        <p>Manage an airport, prepare aircraft, and take to the skies.</p>
+        <div class="eyebrow">NEXT-GENERATION AVIATION</div>
+        <h1>RULE THE<br><span>OPEN SKIES</span></h1>
+        <p>Build your airport. Command your aircraft. Explore the world above the clouds.</p>
 
         <div class="menu">
-          <button data-screen="pilot">✈ Start Flying</button>
-          <button data-screen="airport">🏢 Manage Airport</button>
-          <button data-screen="hangar">🛩 Aircraft Hangar</button>
-          <button data-screen="settings">⚙ Settings</button>
+          <button data-screen="pilot">✈ ENTER FLIGHT SIMULATOR</button>
+          <button data-screen="airport">🏢 AIRPORT COMMAND</button>
+          <button data-screen="hangar">🛩 AIRCRAFT HANGAR</button>
+          <button data-screen="settings">⚙ GAME SETTINGS</button>
         </div>
 
         <div class="stats">
-          <div><strong>01</strong><span>YOUR AIRPORT</span></div>
-          <div><strong>00</strong><span>FLIGHTS TODAY</span></div>
-          <div><strong>READY</strong><span>FLIGHT STATUS</span></div>
+          <div><strong id="flight-count">00</strong><span>FLIGHTS</span></div>
+          <div><strong id="altitude">0000</strong><span>ALTITUDE (FT)</span></div>
+          <div><strong id="speed">000</strong><span>SPEED (KNOTS)</span></div>
         </div>
       </section>
     </main>
 
-    <footer> AIR-FLY SIMULATOR · BUILD YOUR AVIATION WORLD </footer>
+    <section id="game-view" hidden>
+      <div id="world-container"></div>
+
+      <div class="hud">
+        <div class="hud-card">
+          <span>ALTITUDE</span>
+          <strong id="hud-altitude">0 FT</strong>
+        </div>
+        <div class="hud-card">
+          <span>AIRSPEED</span>
+          <strong id="hud-speed">0 KTS</strong>
+        </div>
+        <button id="camera-button">📷 CAMERA</button>
+        <button id="exit-button">✕ EXIT</button>
+      </div>
+
+      <div id="flight-message">PREPARING SIMULATOR...</div>
+
+      <div class="flight-controls">
+        <button id="left-button" aria-label="Steer left">◀</button>
+        <button id="up-button" aria-label="Pitch up">▲</button>
+        <button id="down-button" aria-label="Pitch down">▼</button>
+        <button id="right-button" aria-label="Steer right">▶</button>
+        <button id="throttle-button">THROTTLE +</button>
+      </div>
+    </section>
+
+    <footer>AIR-FLY · YOUR AVIATION ADVENTURE BEGINS HERE</footer>
   </div>
 
   <script type="module" src="./src/main.js"></script>
 </body>
-  </html>
-    
+      </html>
+  
